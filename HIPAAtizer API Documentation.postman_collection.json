@@ -1,11 +1,11 @@
 {
 	"info": {
-		"_postman_id": "3cff2b4d-a553-4534-9197-ea14cca4634a",
+		"_postman_id": "db38612b-143a-4b5b-ae6d-8707d7c7454f",
 		"name": "HIPAAtizer API Documentation",
 		"description": "The **HIPAAtizer API** provides tools for integrating HIPAA-compliant workflows into your applications. With this API, you can:\n\n- **Retrieve Form Submission Data**: Access and manage submitted form information securely.\n    \n- **Manage Appointments**: Set up, search, and organize appointments programmatically.\n    \n- **Start Advanced Workflows**: Automate processes to enhance your application capabilities.\n    \n\n### **Prerequisites**\n\nTo use the API, you need to:\n\n1. **Whitelist Your IP Address**  \n    Add your server's IP address in the **Integrations** menu of your HIPAAtizer account.\n    \n2. **Generate an API Key**  \n    Obtain a **personal API key** from the **Integrations** menu.\n    \n3. **Include the API Key in Requests**  \n    Add your API key in the `X-Api-Key` header for every request.\n    \n\n### **Important Notes**\n\n- Use **HTTPS** for all API requests to ensure data security.\n    \n- Ensure your IP address is whitelisted before making requests.\n    \n- Keep your API key confidential and do not share it publicly.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "6101984",
-		"_collection_link": "https://cappers.postman.co/workspace/42e2bcb8-ec64-49e9-a8e3-213cdaf81deb/collection/6101984-3cff2b4d-a553-4534-9197-ea14cca4634a?action=share&source=collection_link&creator=6101984"
+		"_collection_link": "https://cappers.postman.co/workspace/HIPAAtizer-Public-API-Docs~75040012-9b87-459c-8000-c90e73616b1c/collection/6101984-db38612b-143a-4b5b-ae6d-8707d7c7454f?action=share&source=collection_link&creator=6101984"
 	},
 	"item": [
 		{
@@ -4746,6 +4746,263 @@
 															],
 															"cookie": [],
 															"body": "{\n  \"id\": \"<uuid>\",\n  \"workflowId\": \"<uuid>\",\n  \"workflowVersionId\": \"<uuid>\",\n  \"ipAddress\": \"<string>\",\n  \"data\": {\n    \"ipsumfba\": {},\n    \"consequate0\": {}\n  },\n  \"createdAt\": \"<string>\"\n}"
+														},
+														{
+															"name": "Bad request",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	},
+																	{
+																		"key": "X-Api-Key",
+																		"value": "<API Key>",
+																		"description": "Added as a part of security scheme: apikey"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/api_key/submissions/:submissionId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"api_key",
+																		"submissions",
+																		":submissionId"
+																	],
+																	"variable": [
+																		{
+																			"key": "submissionId"
+																		}
+																	]
+																}
+															},
+															"status": "Bad Request",
+															"code": 400,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"message\": \"<string>\",\n  \"type\": \"WrongStep\",\n  \"step\": \"ReviewBillingInformation\",\n  \"requestId\": \"<string>\",\n  \"verificationItems\": [\n    {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone\": \"<string>\"\n    }\n  ],\n  \"errorFields\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+														},
+														{
+															"name": "Unauthorized",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "X-Api-Key",
+																		"value": "<API Key>",
+																		"description": "Added as a part of security scheme: apikey"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/api_key/submissions/:submissionId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"api_key",
+																		"submissions",
+																		":submissionId"
+																	],
+																	"variable": [
+																		{
+																			"key": "submissionId"
+																		}
+																	]
+																}
+															},
+															"status": "Unauthorized",
+															"code": 401,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														},
+														{
+															"name": "Forbidden",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "X-Api-Key",
+																		"value": "<API Key>",
+																		"description": "Added as a part of security scheme: apikey"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/api_key/submissions/:submissionId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"api_key",
+																		"submissions",
+																		":submissionId"
+																	],
+																	"variable": [
+																		{
+																			"key": "submissionId"
+																		}
+																	]
+																}
+															},
+															"status": "Forbidden",
+															"code": 403,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														},
+														{
+															"name": "Internal server error",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "X-Api-Key",
+																		"value": "<API Key>",
+																		"description": "Added as a part of security scheme: apikey"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/api_key/submissions/:submissionId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"api_key",
+																		"submissions",
+																		":submissionId"
+																	],
+																	"variable": [
+																		{
+																			"key": "submissionId"
+																		}
+																	]
+																}
+															},
+															"status": "Internal Server Error",
+															"code": 500,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												},
+												{
+													"name": "Delete Submission By Id",
+													"request": {
+														"auth": {
+															"type": "apikey",
+															"apikey": [
+																{
+																	"key": "key",
+																	"value": "X-Api-Key",
+																	"type": "string"
+																},
+																{
+																	"key": "value",
+																	"value": "{{apiKey}}",
+																	"type": "string"
+																},
+																{
+																	"key": "in",
+																	"value": "header",
+																	"type": "string"
+																}
+															]
+														},
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/v1/api_key/submissions/:submissionId",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"v1",
+																"api_key",
+																"submissions",
+																":submissionId"
+															],
+															"variable": [
+																{
+																	"key": "submissionId",
+																	"value": "<uuid>",
+																	"description": "(Required) Id of submission"
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Success",
+															"originalRequest": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "application/json"
+																	},
+																	{
+																		"key": "X-Api-Key",
+																		"value": "<API Key>",
+																		"description": "Added as a part of security scheme: apikey"
+																	}
+																],
+																"url": {
+																	"raw": "{{baseUrl}}/api/v1/api_key/submissions/:submissionId",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"v1",
+																		"api_key",
+																		"submissions",
+																		":submissionId"
+																	],
+																	"variable": [
+																		{
+																			"key": "submissionId"
+																		}
+																	]
+																}
+															},
+															"status": "OK",
+															"code": 200,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"message\": \"Successful operation.\"\n}"
 														},
 														{
 															"name": "Bad request",
